@@ -38,20 +38,6 @@ public:
     {
         return Tuple(x, y, z, 0);
     }
-    inline static bool equal(Tuple a, Tuple b)
-    {
-        bool xe = fequal(a.x(), b.x());
-        bool ye = fequal(a.y(), b.y());
-        bool ze = fequal(a.z(), b.z());
-        bool we = fequal(a.w(), b.w());
-
-        if (xe && ye && ze && we)
-        {
-            return true;
-        }
-        return false;
-    }
-
     inline Tuple operator*(float a)
     {
         float x = m_x * a;
@@ -94,6 +80,7 @@ public:
 Tuple operator+(Tuple point, Tuple vector);
 Tuple operator-(Tuple t1, Tuple t2);
 Tuple operator-(Tuple t);
+bool operator==(Tuple a, Tuple b);
 #endif // TUPLE_H
 
 

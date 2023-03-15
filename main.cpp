@@ -1,12 +1,14 @@
-#include <iostream>
 #include "math/tuple.h"
 #include "graphics/canvas.h"
+#include "math/matrix.h"
 
+#include <iostream>
 #include <vector>
 #include <fstream>
 
 namespace tests
 {
+
 }
 
 namespace ProjectileFun
@@ -64,6 +66,7 @@ Projectile tick(Environment e, Projectile p)
 
 using namespace ProjectileFun;
 
+
 int main()
 {
     Projectile p(Tuple::point(0, 1, 0), Tuple::normalize(Tuple::vector(1, 1, 0)) * 4);
@@ -90,6 +93,7 @@ int main()
     std::ofstream stream;
     stream.open("image.ppm", std::ios::out);
     stream << c.toPPM();
+
     return 0;
 }
 

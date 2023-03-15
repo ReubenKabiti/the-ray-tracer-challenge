@@ -67,6 +67,21 @@ Tuple operator-(Tuple t)
     return Tuple::vector(0, 0, 0) - t;
 }
 
+bool operator==(Tuple a, Tuple b)
+{
+    bool xe = fequal(a.x(), b.x());
+    bool ye = fequal(a.y(), b.y());
+    bool ze = fequal(a.z(), b.z());
+    bool we = fequal(a.w(), b.w());
+
+    if (xe && ye && ze && we)
+    {
+        return true;
+    }
+    return false;
+
+}
+
 Tuple::Tuple()
 {
     m_x = m_y = m_z = m_w = 0;

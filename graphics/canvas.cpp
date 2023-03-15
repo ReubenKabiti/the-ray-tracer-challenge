@@ -54,7 +54,7 @@ Canvas::Canvas(unsigned int w, unsigned int h)
 
 Canvas::~Canvas()
 {
-    delete m_pixels;
+    delete[] m_pixels;
 }
 
 void Canvas::setPixelAt(unsigned int x, unsigned int y, Color c)
