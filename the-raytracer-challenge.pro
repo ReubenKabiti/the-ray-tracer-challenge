@@ -17,3 +17,6 @@ HEADERS += \
     math/tuple.h
 
 DEFINES += "QT_DEBUG"
+
+DISTFILES += \
+    README.md
