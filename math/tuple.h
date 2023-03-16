@@ -2,12 +2,6 @@
 #define TUPLE_H
 #include "helper.h"
 
-#ifdef QT_DEBUG
-#include <assert.h>
-#else
-#define assert(expr)
-#endif
-
 class Tuple
 {
 private:

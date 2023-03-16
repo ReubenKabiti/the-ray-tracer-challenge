@@ -59,7 +59,7 @@ Canvas::~Canvas()
 
 void Canvas::setPixelAt(unsigned int x, unsigned int y, Color c)
 {
-    if (x >= m_width || y >= m_height || x < 0 || y < 0)
+    if (x >= m_width || y >= m_height)
         return;
     unsigned int offset = m_width * y + x;
     m_pixels[offset] = c;
@@ -67,7 +67,7 @@ void Canvas::setPixelAt(unsigned int x, unsigned int y, Color c)
 
 Color Canvas::pixelAt(unsigned int x, unsigned int y)
 {
-    if (x >= m_width || y >= m_height || x < 0 || y < 0)
+    if (x >= m_width || y >= m_height)
         return Color(0, 0, 0);
     unsigned int offset = m_width * y + x;
     return m_pixels[offset];

@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 
+// everything below are tests
 namespace tests
 {
 
@@ -71,7 +72,6 @@ int main()
 {
     Projectile p(Tuple::point(0, 1, 0), Tuple::normalize(Tuple::vector(1, 1, 0)) * 4);
     Environment e(Tuple::vector(0, -0.1, 0), Tuple::vector(-0.01, 0, 0));
-    int numTicks = 0;
 
     Canvas c(200, 50);
 
@@ -79,21 +79,38 @@ int main()
     {
         p = tick(e, p);
         c.setPixelAt(p.position().x(), p.position().y(), Color(255, 255, 0));
-        std::cout << "Position: (" << p.position().x()
-                  << ", " << p.position().y()
-                  << ", " << p.position().z()
-                  << ", " << p.position().w()
-                  << ")" << std::endl;
-        if (p.position().y() <= 0)
+            if (p.position().y() <= 0)
             break;
-        numTicks ++;
     }
 
-    std::cout << "Number of ticks: " << numTicks << std::endl;
     std::ofstream stream;
     stream.open("image.ppm", std::ios::out);
     stream << c.toPPM();
 
+    auto printMat = [](Matrix a)
+    {
+       for (unsigned int r = 0; r < a.nRow(); r++)
+       {
+           for (unsigned int c = 0; c < a.nCol(); c++)
+           {
+               std::cout << a[r][c] << " ";
+           }
+           std::cout << std::endl;
+       }
+    };
+
+    auto printTup = [](Tuple t)
+    {
+        std::cout << "(" << t.x() << ", " << t.y() << ", " << t.z() << ", " << t.w() << ")\n";
+    };
+
+    Matrix m = Matrix::identity(4);
+    Tuple t = Tuple::point(3, 4, 1);
+
+    m[1][2] = 4;
+    printMat(m);
+    std::cout << "\n";
+    printTup(m * t);
     return 0;
 }
 

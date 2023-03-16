@@ -2,6 +2,12 @@
 #define HELPER_H
 #include <cmath>
 
+#ifdef QT_DEBUG
+#include <assert.h>
+#else
+#define assert(expr)
+#endif
+
 const float EPSILON = 1e-5;
 
 bool fequal(float a, float b);
